@@ -3,5 +3,4 @@
 
 config ZMK_BEHAVIOR_CAPS_WORD_CUSTOM
     bool "Custom Caps Word Behavior"
-    depends on ZMK_KEYMAP
-    select ZMK_HID
+    default y
