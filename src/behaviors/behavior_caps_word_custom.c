@@ -132,6 +132,7 @@ static void caps_word_enhance_usage(const struct behavior_caps_word_config *conf
 }
 
 static int caps_word_keycode_state_changed_listener(const zmk_event_t *eh) {
+    LOG_WRN("caps_word listener");
     struct zmk_keycode_state_changed *ev = as_zmk_keycode_state_changed(eh);
     if (ev == NULL || !ev->state) {
         return ZMK_EV_EVENT_BUBBLE;
