@@ -10,6 +10,4 @@ if(CONFIG_ZMK_SPLIT_ROLE_CENTRAL OR NOT CONFIG_ZMK_SPLIT)
         ${ZMK_APP_DIR}/src/hid.c
         ${ZMK_APP_DIR}/src/events/keycode_state_changed.c
     )
-
-    add_subdirectory(src/behaviors)
 endif()
