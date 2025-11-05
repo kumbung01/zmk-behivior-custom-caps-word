@@ -60,7 +60,8 @@ static int on_caps_word_binding_pressed(struct zmk_behavior_binding *binding,
                                         struct zmk_behavior_binding_event event) {
     const struct device *dev = zmk_behavior_get_binding(binding->behavior_dev);
     struct behavior_caps_word_data *data = dev->data;
-
+    
+    LOG_WRN("on caps word binding pressed");
     if (data->active) {
         deactivate_caps_word(dev);
     } else {
@@ -72,6 +73,8 @@ static int on_caps_word_binding_pressed(struct zmk_behavior_binding *binding,
 
 static int on_caps_word_binding_released(struct zmk_behavior_binding *binding,
                                          struct zmk_behavior_binding_event event) {
+                                        
+    LOG_WRN("on caps word binding released");
     return ZMK_BEHAVIOR_OPAQUE;
 }
 
@@ -132,9 +135,9 @@ static void caps_word_enhance_usage(const struct behavior_caps_word_config *conf
 }
 
 static int caps_word_keycode_state_changed_listener(const zmk_event_t *eh) {
-    LOG_WRN("caps_word listener");
     struct zmk_keycode_state_changed *ev = as_zmk_keycode_state_changed(eh);
     if (ev == NULL || !ev->state) {
+        LOG_WRN("bubble?");
         return ZMK_EV_EVENT_BUBBLE;
     }
 
