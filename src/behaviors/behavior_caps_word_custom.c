@@ -137,7 +137,6 @@ static void caps_word_enhance_usage(const struct behavior_caps_word_config *conf
 static int caps_word_keycode_state_changed_listener(const zmk_event_t *eh) {
     struct zmk_keycode_state_changed *ev = as_zmk_keycode_state_changed(eh);
     if (ev == NULL || !ev->state) {
-        LOG_WRN("bubble?");
         return ZMK_EV_EVENT_BUBBLE;
     }
 
@@ -146,6 +145,7 @@ static int caps_word_keycode_state_changed_listener(const zmk_event_t *eh) {
 
         struct behavior_caps_word_data *data = dev->data;
         if (!data->active) {
+            LOG_WRN("not active");
             continue;
         }
 
