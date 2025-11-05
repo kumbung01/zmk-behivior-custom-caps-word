@@ -127,7 +127,7 @@ static bool caps_word_is_numeric(uint8_t usage_id) {
 static void caps_word_enhance_usage(const struct behavior_caps_word_config *config,
                                     struct zmk_keycode_state_changed *ev) {
     if (ev->usage_page != HID_USAGE_KEY || !caps_word_is_alpha(ev->keycode)) {
-        LOG_WRN("usage_page: %d, is_alpha: %d",_ev->usage_page != HID_USAGE_KEY, caps_word_is_alpha(ev->keycode));
+        LOG_WRN("usage_page: %d, is_alpha: %d", ev->usage_page != HID_USAGE_KEY, caps_word_is_alpha(ev->keycode));
         return;
     }
 
