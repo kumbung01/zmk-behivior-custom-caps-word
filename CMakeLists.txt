@@ -3,3 +3,4 @@
 
 zephyr_library()
 add_subdirectory(src/behaviors)
+add_subdirectory(src/events)
